@@ -28,5 +28,4 @@ g++ run.cpp -o run -O3
 
 
 ## Authors: 
-	Jie Zhang   Jiezhang.Joena@asu.edu
-        Yalin Wang  ylwang@asu.edu
+	Jie Zhang   Jiezhang.Joena@asu.edu     Yalin Wang  ylwang@asu.edu
