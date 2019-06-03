@@ -1,6 +1,16 @@
-# MMLC
+# Multi-Task Dictionary Learning
+We formulate an unsupervised framework for multi-task sparse feature learning based on a novel dictionary learning algorithm. To solve the unsupervised learning problem, we propose a two-stage Multi-Source Multi-Target Dictionary Learning (MMDL) algorithm. In stage 1, we propose a multi-source dictionary learning method to utilize the common and individual sparse features in different time slots. In stage 2, supported by a rigorous theoretical analysis, we develop a multi-task learning method to solve the missing label problem.
 
-Alzheimer's Disease (AD) is the most common type of dementia. Identifying correct biomarkers may determine pre-symptomatic AD subjects and enable early intervention. Sparse coding (SC) has shown strong statistical power in many biomedical informatics and brain image analysis researches. However, the SC computation is time-consuming and often leads to inconsistent codes, i.e., local features with similar descriptors tend to have different sparse codes, and longitudinal analysis always contains incomplete data and missing label information. To address above challenges, we invent a novel two-stage Multi-Resemblance Multi-Target Low-Rank Coding (MMLC), which encourages that sparse codes of neighboring time point longitudinal features to be resemblant to each other and only a few sparse codes are necessary to represent all features in a local region to reduce the computational cost. In stage one, we propose a online multi-resemblant low-rank SC method to utilize the common and task-specific dictionaries in different time points data to capture the multiple time points longitudinal correlation. In stage two, supported by a rigorous theoretical analysis, we develop a multi-target learning method to solve the missing label problem. To solve such a multi-task sparse low-rank optimization problem, we propose a stochastic coordinate coding method with a sequence of closed-form update steps which reduce the computational cost guaranteed by a theoretical fast convergence proof. 
+Please refer to the file Readme_MMDL_1.0.txt to use the MMDL package.
 
-## Usage
+This work has already been published at IPMI 2017 http://www.ipmi2017.org/.
+The paper is "Multi-Source Multi-Target Dictionary Learning for Prediction of Cognitive Decline"
 
+
+Multi-Task Dictionary Learning
+
+version 1.0
+
+Authors: Qingyang Li  liqingyanghappy@gmail.com
+	 Jie Zhang   Jiezhang.Joena@asu.edu
+         Yalin Wang  ylwang@asu.edu

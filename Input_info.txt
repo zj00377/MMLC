@@ -1,0 +1,12 @@
+sample1.txt 2204
+sample1.txt 2204
+sample1.txt 2204
+sample1.txt 2204
+Feature1.txt 1500
+Feature2.txt 1500
+Feature3.txt 1500
+Feature4.txt 1500
+D1.txt 
+D2.txt 
+D3.txt 
+D4.txt
