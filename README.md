@@ -4,6 +4,27 @@ Alzheimer's Disease (AD) is the most common type of dementia. Identifying correc
 
 ## Usage
 
+### Running Code
+
+We implemented the algorithm as described in the paper based on c++ and Matlab.
+
+### Run examples
+
+In this code, you can run our algorithm on test dataset. If you want to use our surface based morphometry features (mTBM), please contact me to get the access of the features. 
+
+If you execute our two-stage MMLC, you can reproduce our model.  
+
+#### Stage 1: Multi-Resemblant Low-rank Sparse Coding
+
+```
+g++ run.cpp -o run -O3
+```
+
+#### Stage 2: Multi-Target Regression
+
+```
+[ predict, testclass, rMSE] = regression(AD, MCI, CU, 0.9, input, label, `Lasso')
+```
 
 
 ## Authors: 
