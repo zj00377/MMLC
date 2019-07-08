@@ -108,7 +108,7 @@ Method = 'Lasso' or 'Ridge' regression
 Here is an example of running the stage 2.
 
 ```
-[ predict, testclass, rMSE] = regression(194, 388, 224, 0.9, 'Feature1.txt', MMSE, 'Lasso')`
+[ predict, testclass, rMSE] = regression(194, 388, 224, 0.9, 'Feature1.txt', MMSE, 'Lasso')
 
 ```
 
