@@ -30,7 +30,7 @@ g++ run.cpp -o run -O3
 
 ### Setup
 
-First follow the instructions for [installing Matlab and g++](https://github.com/deepmind/sonnet).
+First follow the instructions for [installing Matlab and g++](https://www.mathworks.com/).
 
 This package requires Matlab 2012a+ and g++ 4.6+
 
@@ -64,7 +64,7 @@ D4.txt
 
 sample1.txt ~ sample4.txt are the feature matrices for four tasks and 2204 is N (the number of samples in each task), sampleDim = 400 (in run.cpp) is M (the dimension of input features) for each task. M can be different for different tasks. sparseCode1.txt ~ sparseCode4.txt are the sparse codes with dimension of K * N for four tasks and 1500 is K (the dimension of sparse codes). D1.txt ~ D4.txt are the dictionaries for four tasks which includes common and individual dictionaries, its dimension is M * K. 
 
-### Learning dictionaries and sparse codes
+### Learning multi-task dictionaries and sparse codes
 
 ```
 g++ run.cpp -o run -O3
