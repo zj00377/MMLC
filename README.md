@@ -25,7 +25,102 @@ g++ run.cpp -o run -O3
 ```
 [ predict, testclass, rMSE] = regression(AD, MCI, CU, 0.9, input, label, `Lasso')
 ```
+	
+# Further MMLC Details
+
+## Running the code
+
+### Setup
+
+First follow the instructions for [installing Matlab and g++](https://github.com/deepmind/sonnet).
+
+This package requires Matlab 2012a+ and g++ 4.6+
+
+Then, clone this repository using
+
+`$ git clone https://github.com/zj00377/MMLC`
 
 
-## Authors: 
-	Jie Zhang   Jiezhang.Joena@asu.edu     Yalin Wang  ylwang@asu.edu
+### Sample data and preprocessing
+
+If you want to use our MMS features in the paper, please contact the author of the paper to get the access.
+
+For other usage, please prepare your multi-task feature matrix into with M * N dimension. N is the number of samples and M is the dimension of each samples. 
+
+Please list your input information into Input_info.txt. Here is an example with four tasks as inputs. (You can check our sample matrices in this repo)
+
+`
+sample1.txt 2204
+sample2.txt 2204
+sample3.txt 2204
+sample4.txt 2204
+sparseCode1.txt 1500
+sparseCode2.txt 1500
+sparseCode3.txt 1500
+sparseCode4.txt 1500
+D1.txt 
+D2.txt 
+D3.txt 
+D4.txt
+`
+sample1.txt ~ sample4.txt are the feature matrices for four tasks and 2204 is N (the number of samples in each task), sampleDim = 400 (in run.cpp) is M (the dimension of input features) for each task. M can be different for different tasks. sparseCode1.txt ~ sparseCode4.txt are the sparse codes with dimension of K * N for four tasks and 1500 is K (the dimension of sparse codes). D1.txt ~ D4.txt are the dictionaries for four tasks which includes common and individual dictionaries, its dimension is M * K. 
+
+### Learning dictionaries and sparse codes
+
+```
+g++ run.cpp -o run -O3
+```
+**sparse feature K usually 5 times of input sample dimension M
+
+You can modify the common dictionary size via change dictionarySize = 500 in run.cpp, the best performance is achived by 1:1 split the common and individual dictionary in our paper.
+
+### Max-pooling
+
+```
+./MaxPooling featureDim batchSize FeatureFileName outputFile
+```
+FeatureFileName = 'sparseCode1.txt' (the name of the output from MMLC stage1)
+featureDim is M (the dimension of sparse codes)
+batchSize is the number of patches for each subject
+outputFile = 'Feature1.txt' (the name of the features which we will use do the prediction)
+
+Here is the example 
+
+```
+>>./MaxPooling 1500 4 SparseCode1.txt Feature1.txt
+````
+
+### Running the regression stage
+
+Run the example code using
+
+`$ [ predict, testclass, rMSE] = regression(AD, MCI, CU, ratio, sample, label, Method)`
+
+AD = the number of subjects of AD
+MCI = the number of subjects of MCI
+CU = the number of subjects of normal control
+ratio = the ratio for split training and testing set, default is 0.9
+sample = feature matrix for all subjects, which extracted by stage 1 of MMLC
+label = the ground truth for all subjects, here is MMSE or ADAS value. 
+Method = 'Lasso' or 'Ridge' regression
+
+The outputs are the predict MMSE or ADAS value (predict) with the ground truth (testclass) and the rMSE value. 
+And the script will output as follows:
+
+```
+rMSE
+ 
+2.24
+
+```
+
+
+### Authors
+
+Jie Zhang   Jiezhang.Joena@asu.edu     Yalin Wang  ylwang@asu.edu
+
+### Questions and contributions
+
+For any questions, you can contact the authors of the MMLC paper, whose are listed as above.
+
+
