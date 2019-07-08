@@ -26,9 +26,7 @@ g++ run.cpp -o run -O3
 [ predict, testclass, rMSE] = regression(AD, MCI, CU, 0.9, input, label, `Lasso')
 ```
 	
-# Further MMLC Details
-
-## Running the code
+## Further MMLC Details
 
 ### Setup
 
@@ -49,7 +47,7 @@ For other usage, please prepare your multi-task feature matrix into with M * N d
 
 Please list your input information into Input_info.txt. Here is an example with four tasks as inputs. (You can check our sample matrices in this repo)
 
-`
+```
 sample1.txt 2204
 sample2.txt 2204
 sample3.txt 2204
@@ -62,7 +60,8 @@ D1.txt
 D2.txt 
 D3.txt 
 D4.txt
-`
+```
+
 sample1.txt ~ sample4.txt are the feature matrices for four tasks and 2204 is N (the number of samples in each task), sampleDim = 400 (in run.cpp) is M (the dimension of input features) for each task. M can be different for different tasks. sparseCode1.txt ~ sparseCode4.txt are the sparse codes with dimension of K * N for four tasks and 1500 is K (the dimension of sparse codes). D1.txt ~ D4.txt are the dictionaries for four tasks which includes common and individual dictionaries, its dimension is M * K. 
 
 ### Learning dictionaries and sparse codes
