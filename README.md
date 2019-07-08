@@ -69,6 +69,7 @@ sample1.txt ~ sample4.txt are the feature matrices for four tasks and 2204 is N 
 ```
 g++ run.cpp -o run -O3
 ```
+
 **sparse feature K usually 5 times of input sample dimension M
 
 You can modify the common dictionary size via change dictionarySize = 500 in run.cpp, the best performance is achived by 1:1 split the common and individual dictionary in our paper.
@@ -78,6 +79,7 @@ You can modify the common dictionary size via change dictionarySize = 500 in run
 ```
 ./MaxPooling featureDim batchSize FeatureFileName outputFile
 ```
+
 FeatureFileName = 'sparseCode1.txt' (the name of the output from MMLC stage1)
 featureDim is M (the dimension of sparse codes)
 batchSize is the number of patches for each subject
@@ -99,9 +101,16 @@ AD = the number of subjects of AD
 MCI = the number of subjects of MCI
 CU = the number of subjects of normal control
 ratio = the ratio for split training and testing set, default is 0.9
-sample = feature matrix for all subjects, which extracted by stage 1 of MMLC
+sample = feature matrix for all subjects, which is the output of max-pooling by stage 1 of MMLC
 label = the ground truth for all subjects, here is MMSE or ADAS value. 
 Method = 'Lasso' or 'Ridge' regression
+
+Here is an example of running the stage 2.
+
+```
+[ predict, testclass, rMSE] = regression(194, 388, 224, 0.9, 'Feature1.txt', MMSE, 'Lasso')`
+
+```
 
 The outputs are the predict MMSE or ADAS value (predict) with the ground truth (testclass) and the rMSE value. 
 And the script will output as follows:
@@ -112,7 +121,6 @@ rMSE
 2.24
 
 ```
-
 
 ### Authors
 
