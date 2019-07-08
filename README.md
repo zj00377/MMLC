@@ -128,6 +128,6 @@ Jie Zhang   Jiezhang.Joena@asu.edu     Yalin Wang  ylwang@asu.edu
 
 ### Questions and contributions
 
-For any questions, you can contact the authors of the MMLC paper, whose are listed as above.
+For any questions, you can contact the authors' emails of the MMLC paper, whose are listed as above.
 
 
