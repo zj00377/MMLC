@@ -64,11 +64,19 @@ D4.txt
 
 sample1.txt ~ sample4.txt are the feature matrices for four tasks and 2204 is N (the number of samples in each task), sampleDim = 400 (in run.cpp) is M (the dimension of input features) for each task. M can be different for different tasks. sparseCode1.txt ~ sparseCode4.txt are the sparse codes with dimension of K * N for four tasks and 1500 is K (the dimension of sparse codes). D1.txt ~ D4.txt are the dictionaries for four tasks which includes common and individual dictionaries, its dimension is M * K. 
 
-### Learning multi-task dictionaries and sparse codes
+### Learning multi-task dictionaries and low-rank and resamble sparse codes via ADMM
 
 ```
 g++ run.cpp -o run -O3
 ```
+
+Once you finish one epoch and get the latest sparse codes, you can path all sparse codes matrices into the following functions
+
+```
+python lowRank_SCodes.py -i /input path/to/sparsecodes/txtfile -o /output path/to/sparsecodes/txtfile --lambda1 0.13 --lambda2 0.1 --lambda3 1000 -t 4
+```
+
+Then, you can use the sparsecodes%i_new.txt files as the initial sparse codes for the next epoch of run.cpp. Please repeat above procedure for 10 times. 
 
 **sparse feature K usually 5 times of input sample dimension M
 
