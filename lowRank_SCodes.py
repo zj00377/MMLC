@@ -59,6 +59,13 @@ if __name__ == "__main__":
 	diffS = resemble_sparse(outputS)
 	for T in range(len(diffS)):
 		outputS[T] = args.lambda2/args.lambda1 * outputS[T] + args.lambda3/args.lambda1 * diffS[T]
+		
+		row_sums = outputS[T].sum(axis=1)
+		for i, num in enumerate(row_sums):
+		 	if num == 0:
+		 		row_sums[i] = 1e-10
+		outputS[T] = outputS[T] / row_sums[:, numpy.newaxis]
+
 		outfile = os.path.join(args.output_path, 'SparseCodes%d_new.txt'%T)
 		fout = open(outfile, 'w')
 		for row in outputS[T]:
